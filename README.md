@@ -1,12 +1,12 @@
-# Rs::Sync
+# RightScript Sync
 
-TODO: Write a gem description
+RightScript is a tool to synchronize all scripts in your RightScale account with your local file system. 
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'rs-sync'
+    gem 'rightscript_sync'
 
 And then execute:
 
@@ -14,11 +14,15 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rs-sync
+    $ gem install rightscript_sync
 
 ## Usage
 
 TODO: Write usage instructions here
+
+## Limitations
+
+Currently, this script only supports downloading of all RightScripts and corresponding attachments. It does not at this time support the ability to synchronize changes made locally to RightScale.
 
 ## Contributing
 
