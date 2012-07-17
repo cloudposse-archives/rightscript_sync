@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with RightScript Sync.  If not, see <http://www.gnu.org/licenses/>.
 #
-require 'optparser'
+require 'optparse'
 
 module RightScriptSync
   class MissingArgumentException < Exception; end
