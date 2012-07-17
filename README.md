@@ -18,7 +18,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    Usage: rightscript-sync options
+            --dry-run                    Output the parsed files to STDOUT
+            --output-path DIR            Use DIR as output directory
+            --account-id ID              RightScale Account ID
+            --username USERNAME          RightScale Username
+            --password PASSWORD          RightScale Password
+        -V, --version                    Display version information
+        -h, --help                       Display this screen
+
+
 
 ## Limitations
 
