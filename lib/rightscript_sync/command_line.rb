@@ -36,7 +36,7 @@ module RightScriptSync
           end
           
           opts.on( '--output-path DIR', 'Use DIR as output directory') do |dir|
-            @options[:output_dir] = dir + '/'
+            @options[:output_path] = dir.gsub(/\/+$/, '')
           end
           
           opts.on( '--account-id ID', 'RightScale Account ID' ) do|account_id|
@@ -50,6 +50,12 @@ module RightScriptSync
           opts.on( '--password PASSWORD', 'RightScale Password' ) do|password|
             @options[:password] = password
           end
+
+          @options[:log_level] = Logger::INFO
+          opts.on( '--log-level LEVEL', 'Logging level' ) do|level|
+            @options[:log_level] = Logger.const_get level.upcase
+          end
+
 
           opts.on( '-V', '--version', 'Display version information' ) do
             puts "RightScript Sync #{RightScriptSync::VERSION}"

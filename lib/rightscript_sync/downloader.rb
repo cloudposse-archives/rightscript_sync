@@ -32,6 +32,7 @@ module RightScriptSync
 
     def initialize(options)
       @log = Logger.new(STDOUT)
+      @log.level = options[:log_level]
       @account_id = options[:account_id]
       @username = options[:username]
       @password = options[:password]
@@ -45,7 +46,7 @@ module RightScriptSync
       @agent = Mechanize.new do |agent|
         #agent.log = @log
         agent.user_agent_alias = 'Mac Safari'
-        agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        agent.verify_mode = ::OpenSSL::SSL::VERIFY_NONE
         agent.cookie_jar = @cookie_jar
       end
     end
@@ -167,7 +168,7 @@ module RightScriptSync
         end
       end
       download_file(url, headers, right_script_attachment_file_path)
-      File.utime(Time.parse(right_script_attachment[:updated_at]), Time.parse(right_script_attachment[:created_at]), right_script_attachment_file_path)
+      File.utime(Time.parse(right_script_attachment[:updated_at]), Time.parse(right_script_attachment[:created_at]), right_script_attachment_file_path) unless @dry_run
       @log.info("Attachment stored to #{right_script_attachment_file_path}")
     end
 
@@ -185,7 +186,7 @@ module RightScriptSync
 
       right_script_file_path = "#{right_script_path}/script.txt"
       store_file(right_script_file_path, right_script[:script])
-      File.utime(Time.parse(right_script[:updated_at]), Time.parse(right_script[:created_at]), right_script_file_path)
+      File.utime(Time.parse(right_script[:updated_at]), Time.parse(right_script[:created_at]), right_script_file_path) unless @dry_run
 
       right_script_metadata_path = "#{right_script_path}/metadata.yml"
       store_metadata(right_script_metadata_path, right_script)
