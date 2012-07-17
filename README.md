@@ -24,6 +24,7 @@ Or install it yourself as:
             --account-id ID              RightScale Account ID
             --username USERNAME          RightScale Username
             --password PASSWORD          RightScale Password
+            --log-level LEVEL            Logging level
         -V, --version                    Display version information
         -h, --help                       Display this screen
 
