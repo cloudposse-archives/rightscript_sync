@@ -1,6 +1,6 @@
 # RightScript Sync
 
-RightScript is a tool to synchronize all scripts in your RightScale account with your local file system. 
+RightScript Sync is a tool to synchronize all scripts in your RightScale account with your local file system. 
 
 ## Installation
 
